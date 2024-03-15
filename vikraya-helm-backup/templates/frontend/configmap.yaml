@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+   name: configmap-frontend 
+   namespace: frontend
+data:
+     AUTH_SERVICE_ENDPOINT: "http://auth-service.auth-ns.svc.cluster.local:8080"
+     CATALOG_SERVICE_ENDPOINT: "http://catalog-service.catalog-ns.svc.cluster.local:8080"
+     CART_SERVICE_ENDPOINT: "http://cart-service.cart-ns.svc.cluster.local:8080"
+     ORDER_SERVICE_ENDPOINT: "http://order-service.order-ns.svc.cluster.local:8080"

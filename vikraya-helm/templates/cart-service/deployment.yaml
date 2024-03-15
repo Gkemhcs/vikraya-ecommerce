@@ -1,0 +1,25 @@
+{{- if .Values.cartService.create }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.cartService.name }}
+  namespace: {{ .Values.cartService.namespace }}
+spec:
+  replicas: {{ .Values.cartService.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.cartService.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.cartService.name }}
+    spec:
+      serviceAccountName: {{ .Values.cartService.serviceAccountName }}
+      containers:
+      - name: cnt-1
+        image: {{ .Values.image_registry.location }}-docker.pkg.dev/{{ .Values.image_registry.projectId }}/{{ .Values.image_registry.repository }}/cart-service
+        ports:
+        - containerPort: 8080
+        resources:
+{{ toYaml .Values.cartService.resources | indent 10 }}
+{{- end }}

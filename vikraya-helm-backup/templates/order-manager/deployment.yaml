@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+metadata:
+   name: order-manager-server
+   namespace: order-ns
+kind: Deployment
+spec:
+    replicas: 1
+    selector:
+      matchLabels:
+          app: order-manager-server
+    template:
+       metadata:
+           labels:
+            app: order-manager-server
+       spec:
+        serviceAccountName: order-server-sa
+        containers:
+        - name: cnt-1
+          
+
+          image:  us-docker.pkg.dev/vikraya-ecommerce/vikraya-ecommerce/order-service
+          ports:
+          - containerPort: 8080
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi

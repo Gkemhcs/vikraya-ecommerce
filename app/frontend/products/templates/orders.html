@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center">Your Orders</h2>
+    <div class="row">
+        {% for order in orders %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card mb-4">
+                <a href="/products/{{order.id}}">
+                <img src="{{ order.image_url }}" class="card-img-top" alt="{{ order.product_name }}" >
+                 </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ order.product_name }}</h5>
+                    <p class="card-text">{{ order.price }}</p>
+                    <p class="card-text">Status: {{ order.status }}</p>
+                    <a href="/user/order/cancel/{{order.order_id}}" class="btn btn-danger">Cancel Order</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

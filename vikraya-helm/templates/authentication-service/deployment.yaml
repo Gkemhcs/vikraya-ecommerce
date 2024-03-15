@@ -1,0 +1,25 @@
+{{- if .Values.authService.create }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.authService.name }}
+  namespace: {{ .Values.authService.namespace }}
+spec:
+  replicas: {{ .Values.authService.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.authService.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.authService.name }}
+    spec:
+      serviceAccountName: {{ .Values.authService.serviceAccountName }}
+      containers:
+      - name: cnt-1
+        image: {{ .Values.image_registry.location }}-docker.pkg.dev/{{ .Values.image_registry.projectId }}/{{ .Values.image_registry.repository }}/auth-service
+        ports:
+        - containerPort: 8080
+        resources:
+{{ toYaml .Values.authService.resources | indent 10 }}
+{{- end }}

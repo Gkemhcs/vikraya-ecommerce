@@ -1,0 +1,33 @@
+{{- if .Values.frontend.create }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.frontend.name }}
+  namespace: {{ .Values.frontend.namespace }}
+spec:
+  replicas: {{ .Values.frontend.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.frontend.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.frontend.name }}
+    spec:
+      serviceAccountName: {{ .Values.frontend.serviceAccountName }}
+      containers:
+      - name: cnt-1
+        envFrom:
+        - configMapRef:
+            name: configmap-frontend
+        - secretRef:
+            name: redis-config
+        - secretRef:
+            name: vertex-ai-creds
+        image: {{ .Values.image_registry.location }}-docker.pkg.dev/{{ .Values.image_registry.projectId }}/{{ .Values.image_registry.repository }}/frontend
+        ports:
+        - containerPort: 8080
+          name: metrics
+        resources:
+{{ toYaml .Values.frontend.resources | indent 10 }}
+{{- end }}

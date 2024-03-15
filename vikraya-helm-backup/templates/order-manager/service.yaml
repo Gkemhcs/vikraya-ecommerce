@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+   name: order-service
+   namespace: order-ns
+spec:
+   selector:
+       app: order-manager-server
+   type: ClusterIP
+   ports:
+   - name: order-service-port
+     port: 8080
+  

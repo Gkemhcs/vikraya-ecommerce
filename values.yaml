@@ -1,0 +1,12 @@
+gcp_service_account:  GCP_SERVICE_ACCOUNT
+api_gateway_config:
+    url:  API_GATEWAY_URL
+    apiKey: API_KEY
+redis_config:
+   auth_string: REDIS_SERVER_AUTH_STRING
+   ip_address: REDIS_SERVER_IP_ADDRESS
+   port: REDIS_SERVER_PORT   
+image_registry:
+   projectId: PROJECT_ID
+   location: ARTIFACT_REGISTRY_LOCATION
+   repository: ARTIFACT_REGISTRY_REPOSITORY

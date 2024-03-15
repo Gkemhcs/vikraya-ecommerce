@@ -1,0 +1,79 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="container mt-5">
+
+  
+    <!--Section: Content-->
+    <section class="dark-grey-text text-center">
+      
+     
+        <!-- Grid row -->
+      <div class="row">
+        {% for item in catalog %}
+
+        <!-- Grid column -->
+        <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch">
+          <!-- Card -->
+          <div class="card align-items-center border-primary">
+            <!-- Card image -->
+            <div class="view overlay">
+              <a href=/products/{{item.id}}><img src="{{ item.image_url }}" alt="{{item.product_name.title()}}" class="card-img-top"></a>
+              <div class="mask rgba-white-slight"></div>
+            </div>
+            <!-- Card content -->
+            <div class="card-body text-center">
+              <!-- Category & Title -->
+              <h6 class="text-uppercase text-primary">{{ item.category }}</h6>
+              <h5 class="mb-3 font-weight-bold text-dark">
+                {{ item.product_name.title() }}
+                <span class="badge badge-pill danger-color">NEW</span>
+              </h5>
+              <h5 class="font-weight-bold blue-text mb-0">
+                <strong> ₹{{ item.price }}</strong>
+              </h5>
+        
+              <!-- Buy Now and Wishlist buttons -->
+              <div class="mt-3">
+                <a href="/user/order/create/{{item.id}}" class="btn btn-primary btn-sm btn-block">Buy Now</a>
+                <button id="{{ item.id }}" class="btn btn-outline-secondary btn-sm btn-block custom-btn cart">
+                  <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+            <!-- Card content -->
+          </div>
+          <!-- Card -->
+        </div>
+        <!-- Grid column -->
+  
+  {%  endfor %}
+      </div>
+      <!-- Grid row -->
+  
+    </section>
+    <!--Section: Content-->
+  
+  
+  </div>
+<script>
+  document.querySelectorAll('.cart').forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault()
+        const productId = event.target.id;
+      
+        fetch(`/user/cart/add/${productId}`, { method: 'POST' })
+            .then(response => response.json())
+            .then((data) =>{
+              if(data.status==200){
+                button.textContent="ADDED TO CART"
+              }
+              else {
+                  alert("ITEM ALREADY ADDED TO CART")
+              }
+            });
+          
+    });
+});
+</script>
+{% endblock %}

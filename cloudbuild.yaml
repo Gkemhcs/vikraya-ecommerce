@@ -1,0 +1,32 @@
+steps:
+-  name: ubuntu 
+   
+   args: ["echo","CLOUD BUILD PIPELINE RUNNING"]
+-  name: gcr.io/cloud-builders/docker
+   args: ["build","-t","${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/auth-service","."]
+   dir: app/auth-service
+-  name: gcr.io/cloud-builders/docker
+   args: ["build","-t","${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/cart-service","."]
+   dir: app/cart-service
+-  name: gcr.io/cloud-builders/docker
+   args: ["build","-t","${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/catalog-service","."]
+   dir: app/catalog-service
+-  name: gcr.io/cloud-builders/docker
+   args: ["build","-t","${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/frontend","."]
+   dir: app/frontend
+-  name: gcr.io/cloud-builders/docker
+   args: ["build","-t","${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/order-service","."]
+   dir: app/order-service
+-  name: gcr.io/cloud-builders/docker
+   args: ["build","-t","${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/vector-search-api","."]
+   dir: vector-search
+options:
+  logging: CLOUD_LOGGING_ONLY
+serviceAccount: projects/${PROJECT_ID}/serviceAccounts/cloudbuild@${PROJECT_ID}.iam.gserviceaccount.com
+images:
+- ${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/auth-service
+- ${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/cart-service
+- ${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/catalog-service
+- ${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/frontend
+- ${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/order-service
+- ${_ARTIFACT_REGISTRY_REPOSITORY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPOSITORY_NAME}/vector-search-api

@@ -1,0 +1,6 @@
+{{- if .Values.catalogService.create }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{.Values.catalogService.namespace}}
+{{- end }}

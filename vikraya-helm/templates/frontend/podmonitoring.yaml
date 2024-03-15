@@ -1,0 +1,17 @@
+{{- if .Values.frontend.create }}
+apiVersion: monitoring.googleapis.com/v1
+kind: PodMonitoring
+metadata:
+  name: prom-frontend
+  namespace: {{ .Values.frontend.namespace }}
+
+spec:
+  selector:
+    matchLabels:
+     app:  {{ .Values.frontend.name }}
+
+  endpoints:
+  - port: 8080
+    path: "/metrics" 
+    interval: 30s
+{{- end }}

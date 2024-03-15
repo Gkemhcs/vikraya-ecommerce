@@ -1,0 +1,25 @@
+{{- if .Values.catalogService.create }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.catalogService.name }}
+  namespace: {{ .Values.catalogService.namespace }}
+spec:
+  replicas: {{ .Values.catalogService.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.catalogService.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.catalogService.name }}
+    spec:
+      serviceAccountName: {{ .Values.catalogService.serviceAccountName }}
+      containers:
+      - name: cnt-1
+        image: {{ .Values.image_registry.location }}-docker.pkg.dev/{{ .Values.image_registry.projectId }}/{{ .Values.image_registry.repository }}/catalog-service
+        ports:
+        - containerPort: 8080
+        resources:
+{{ toYaml .Values.catalogService.resources | indent 10 }}
+{{- end }}

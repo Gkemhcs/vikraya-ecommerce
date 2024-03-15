@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center">Your Cart</h2>
+    <div class="row">
+        {% if products|length > 0 %}
+        {% for product in products %}
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card mb-4 animate__animated animate__fadeIn">
+               <a href="/products/{{product.id}}">
+                <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.product_name }}">
+               </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.product_name }}</h5>
+                    <p class="card-text">{{ product.price }}</p>
+                    <a href="#" class="btn btn-primary">Buy Now</a>
+                    <a href="/user/cart/delete/product/{{ product.id }}" class="btn btn-danger">Remove from Cart</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {%else%}
+        <h1>YOU CART IS EMPTY</h1>
+        {% endif %}
+    </div>
+    <div class="text-center">
+        <a href="/user/cart/clear" class="btn btn-danger">Clear Cart</a>
+    </div>
+</div>
+{% endblock %}

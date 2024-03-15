@@ -1,0 +1,80 @@
+# service-acccount 
+gcp_service_account: udhwuhd
+
+
+image_registry:
+  projectId: vikraya-ecommerce
+  repository: vikraya-ecommerce
+  location: us
+
+authService:
+  create: true
+  name: authentication-server
+  namespace: auth-ns
+  serviceAccountName: auth-server-sa
+  replicas: 3
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+
+cartService:
+  create: true
+  name: cart-manager-server
+  namespace: cart-ns
+  serviceAccountName: cart-server-sa
+  replicas: 3
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+
+catalogService:
+  create: true
+  name: catalog-manager-server
+  namespace: catalog-ns
+  serviceAccountName: catalog-server-sa
+  replicas: 3
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+frontend:
+  create: true
+  name: frontend
+  namespace: frontend
+  serviceAccountName: frontend-sa
+  replicas: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+  configMapName: configmap-frontend
+  secretNames:
+    - redis-config
+    - vertex-ai-creds
+orderManager:
+  create: true
+  name: order-manager-server
+  namespace: order-ns
+  serviceAccountName: order-server-sa
+  replicas: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi

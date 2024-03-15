@@ -1,0 +1,15 @@
+{{- if .Values.cartService.create }}
+apiVersion: v1
+kind: Service
+metadata:
+   name: cart-service
+   namespace: {{ .Values.cartService.namespace }}
+spec:
+   selector:
+       app: {{ .Values.cartService.name }}
+   type: ClusterIP
+   ports:
+   - name: cart-service-port
+     port: 8080
+  
+{{- end }}

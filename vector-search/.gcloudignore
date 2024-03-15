@@ -1,0 +1,5 @@
+venv
+openapi.yaml
+send_request.py
+VECTOR*
+__pycache__

@@ -1,0 +1,15 @@
+{{- if .Values.frontend.create }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  namespace: {{ .Values.frontend.namespace }}
+spec:
+  selector:
+    app: {{ .Values.frontend.name }}
+  type: LoadBalancer
+  ports:
+  - name: frontend-port
+    targetPort: 8080
+    port: 8080
+{{- end }}

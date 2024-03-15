@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+metadata:
+   name: cart-manager-server 
+   namespace: cart-ns
+kind: Deployment
+spec:
+    replicas: 1
+    selector:
+      matchLabels:
+          app: cart-manager-server 
+    template:
+       metadata:
+           labels:
+            app: cart-manager-server
+       spec:
+        serviceAccountName: cart-server-sa
+        containers:
+        - name: cnt-1
+          
+
+          image:  us-docker.pkg.dev/vikraya-ecommerce/vikraya-ecommerce/cart-service
+          ports:
+          - containerPort: 8080
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi

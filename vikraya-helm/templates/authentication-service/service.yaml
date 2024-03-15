@@ -1,0 +1,14 @@
+{{- if .Values.authService.create }}
+apiVersion: v1
+kind: Service
+metadata:
+   name: auth-service
+   namespace: {{ .Values.authService.namespace }}
+spec:
+   selector:
+       app: {{ .Values.authService.name }}
+   type: ClusterIP
+   ports:
+   - name: auth-service-port
+     port: 8080
+{{- end }}

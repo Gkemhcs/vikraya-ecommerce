@@ -1,0 +1,6 @@
+{{- if .Values.cartService.create }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.cartService.namespace }}
+{{- end }}

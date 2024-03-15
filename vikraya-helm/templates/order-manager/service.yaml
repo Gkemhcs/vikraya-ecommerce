@@ -1,0 +1,14 @@
+{{- if .Values.orderManager.create }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+  namespace: {{ .Values.orderManager.namespace }}
+spec:
+  selector:
+    app: {{ .Values.orderManager.name }}
+  type: ClusterIP
+  ports:
+  - name: order-service-port
+    port: 8080
+{{- end }}

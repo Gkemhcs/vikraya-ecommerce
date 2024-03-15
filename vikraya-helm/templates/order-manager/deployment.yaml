@@ -1,0 +1,25 @@
+{{- if .Values.orderManager.create }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.orderManager.name }}
+  namespace: {{ .Values.orderManager.namespace }}
+spec:
+  replicas: {{ .Values.orderManager.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.orderManager.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.orderManager.name }}
+    spec:
+      serviceAccountName: {{ .Values.orderManager.serviceAccountName }}
+      containers:
+      - name: cnt-1
+        image: {{ .Values.image_registry.location }}-docker.pkg.dev/{{ .Values.image_registry.projectId }}/{{ .Values.image_registry.repository }}/order-service
+        ports:
+        - containerPort: 8080
+        resources:
+{{ toYaml .Values.orderManager.resources | indent 10 }}
+{{- end }}

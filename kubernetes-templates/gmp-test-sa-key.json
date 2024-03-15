@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "vikraya-ecommerce",
+  "private_key_id": "95c7d709008859d344a0d55ff769f74270ce1696",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCgyt1BcNo2pGaP\nPksl+21GsFwoKP7KOCOEGgg9p3k6PCKfAdvEFEm3YSCGNzAVmDrTeoUdurij5jbS\nBRPClf3SsOymW9arm07I24AoQK+f4A1+BNzZHMELUICsB3ghLbP14BCrYL5kF/tX\nV/KzHfdEE22aZ//cjw+JMRb/Yx2ZpKIU/hBjDTrR8ANVceThc7LSBNS/3w0AmrAn\nAXCyfEd6p59wvY52g+2vcCTyDiljKRoo0LkrGZqDPLgSp2ZmVCboYwEhgtaWfZ0Z\npPCmDAbTF/kC09/a0CoRGpbOPjlygrlfkwnaU/AP7fhnUNC4IuTCz1Kl9UYOqpyQ\nFeVsD7GfAgMBAAECggEABYJqR7MFpAW+6R2DHjYrIqW9f5Apk7kX3iNSrB4lHdA1\nJEAsoNWbII5mJu93PL4vsw3iPdv2DtErdNtUreKcCejn9MgTf7JWISsOZdec9E/c\nEZGJAk/qQjJCOYBRGCo/ig6SWwigd0nD2CNaXJhGrrnPii50ni0dfZXjNleubLIN\nfacXGCDXTD1IFO2PjV8yx4AT6ZjzAv03Rds7Z7V8IQADhtuJ3YnQRWzPhilRBOhx\nFpZ8M8Q8+4eCDo5VtHrAG5T7VG6YjvcdgSFXjJXGA1+6OgPSiNJvQ33Q9AkxxuS9\nKdJKQUzXAQpXrVUXPjePJ2wYssN7TZkVMYvBUvkvvQKBgQDhDfVv4jPgxqaHQQyz\n8CSwSTktKCsPu8biL2rQ1axK9GQqGv33e4fu5J8apcCZEhgBNm0ZZA3zd9nvML2T\n+aOHzHXqAcDORzk0WEvEjJHW5mSbVZRNQTTgVbE4KcU8zwZ8ir5ZE4xMCtxOT0dB\nQdCx231vVPRs+n1tDoL5tkmzHQKBgQC25thhYfvb39JEk4oT0qPOQUevfKpSYfbH\nFE65qPaAoefmC3x7ppFGsiOUOdpUwpqdZobba4fdP4i3L/XDLaJp+P3sp6/1uYhB\nxhITdiVeDEGRQuND1Ib0iYkSqfaC2SgNzHhbmjdZi98uPvk5JSyehgM8Hi+qGLko\n6Pme3UB+6wKBgEhL0KWBeALkLcjTR75iDZcn3ps4BSVHwCsW6mxtx6xIeAjipOUk\npNVEUiwgRQ+nNVjmYAPBFY452SOyd6QalMLiFpr2tzZMwP6kwqpAMfVkC7uusTZk\nFRVf0c9l87uGEeJeO6mn0vD2qDDr3MsE1oLcLJ5gHykHCtXGzKJlQaWtAoGAZFGV\nmURPCjhncimicGD2a6iukvhDy0/kNSlUTMz592/Wa/0c2A1yXV5T2Xcp45ehinez\nvCHssVOpvyBVIiqjjJB/ZhBLmPGcZMcpHveMY1tBk1UmpgupwfK19kC27uoA6CCg\nW03o0fq//POZatiS8pf6qjy8VAWfeWrfj103hOUCgYAS+ImaVY9ovpn/Mj6YWNAm\n4NYN73/+bSl/noNSiENfr73aTN5bk7+mYL+b7C0OMxCDJZ1pdJHmebNjGthvqE/J\nQyh6CsR+fgr9YytF2rb10n8W+eigZ/FMIkA2rhdCVmxMo6xWXKKudFLQxCfPTpV8\nW2XXuS3ioJQNC24++N02WQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "gmp-test-sa@vikraya-ecommerce.iam.gserviceaccount.com",
+  "client_id": "112681920151503199540",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gmp-test-sa%40vikraya-ecommerce.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

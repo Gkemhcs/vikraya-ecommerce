@@ -11,7 +11,7 @@ See the [DESCRIPTION.md](Description.md) file for a detailed overview of Vikraya
 Refer to the [SETUP.md](setup.md) file for installation and configuration instructions. *[Note: You'll need to create this file with the detailed instructions]*
 
 ##Architecture Diagram 
-[VIKRAYA-ARCHITECTURE]("./img/vikraya-architecture.jpg")
+![VIKRAYA-ARCHITECTURE](./img/vikraya-architecture.jpg)
 ## Technologies
 
 * **Google Cloud Platform:** Kubernetes Engine (GKE), Cloud Run, Firestore, Cloud Storage, Cloud Logging, Cloud Monitoring, API Gateway,

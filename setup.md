@@ -112,3 +112,4 @@ sed -i "s/API_GATEWAY_URL/$(echo ${API_GATEWAY_URL}|base64)/" values.yaml
 sed -i "s./API_KEY/$(echo ${API_KEY}|base64)/" values.yaml
 
 ```
+#### Now to access this frontend

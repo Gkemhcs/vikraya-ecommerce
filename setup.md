@@ -78,7 +78,10 @@ cd ..
 ```
 #### Now we need to populate the product_catalog collection in firestore database with the documents
 ``` bash
-cd data-import 
+cd data-import
+virtualenv venv
+source venv/bin/activate
+pip install google-cloud-firestore
 sed -i "s/BUCKET_NAME/${BUCKET_NAME}/g" new-local-catalog.json 
 python3 catalog_data_import.py
 cd ..

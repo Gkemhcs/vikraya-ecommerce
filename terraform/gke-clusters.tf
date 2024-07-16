@@ -5,7 +5,7 @@ resource "google_container_cluster" "cluster1" {
 
 
   node_config {
-    machine_type = "e2-medium"
+    machine_type = "e2-standard-4"
     disk_size_gb = 100
     disk_type    = "pd-standard"
     oauth_scopes = [
@@ -22,6 +22,9 @@ resource "google_container_cluster" "cluster1" {
     http_load_balancing {
       disabled = false
     }
+   workload_identity_config {
+   workload_pool = "${var.PROJECT_ID}.svc.id.goog"
+   }
 
     horizontal_pod_autoscaling {
       disabled = false
@@ -44,7 +47,7 @@ resource "google_container_cluster" "cluster2" {
 
 
   node_config {
-    machine_type = "e2-medium"
+    machine_type = "e2-standard-4"
     disk_size_gb = 100
     disk_type    = "pd-standard"
     oauth_scopes = [
@@ -54,7 +57,10 @@ resource "google_container_cluster" "cluster2" {
 
   network    = google_compute_network.vikraya_network.self_link
   subnetwork = google_compute_subnetwork.subnet[1].name
-
+  
+   workload_identity_config {
+   workload_pool = "${var.PROJECT_ID}.svc.id.goog"
+   }
   addons_config {
     http_load_balancing {
       disabled = false

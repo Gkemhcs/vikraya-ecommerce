@@ -1,6 +1,6 @@
 variable "PROJECT_ID" {
   type    = string
-  default = "vikraya-deployment"
+
 }
 
 

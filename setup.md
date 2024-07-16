@@ -25,6 +25,8 @@ gcloud  projects add-iam-policy-binding vikraya-deployment --member "serviceAcco
 --role roles/logging.logWriter
 gcloud  projects add-iam-policy-binding vikraya-deployment --member "serviceAccount:cloudbuild@${PROJECT_ID}.iam.gserviceaccount.com" \
 --role roles/artifactregistry.createOnPushWriter
+gcloud  projects add-iam-policy-binding vikraya-deployment --member "serviceAccount:cloudbuild@${PROJECT_ID}.iam.gserviceaccount.com" \
+--role roles/storage.admin
 
 ```
 #### Now we need to create an artifact registry to store the docker images of our microservices and vector search api
@@ -46,9 +48,9 @@ gcloud  beta builds submit --config cloudbuild.yaml  \
 #### Create a GOOGLE_CLOUD_STORAGE_BUCKET to store the product images
 ``` bash 
 read BUCKET_SUFFIX
-export BUCKET_NAME =vikraya-ecommerce-${BUCKET_SUFFIX}
+export BUCKET_NAME=vikraya-ecommerce-${BUCKET_SUFFIX}
 gsutil mb  -l us  gs://${BUCKET_NAME}
-gsutil cp -r  static gs:${BUCKET_NAME}/app/
+gsutil cp -r  static gs://${BUCKET_NAME}/app/
 gsutil acl ch -u allUsers:R gs://${BUCKET_NAME}/app/**
  ```
 #### Now we need to deploy our infrastructure using terraform

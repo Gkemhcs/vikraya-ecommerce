@@ -1,5 +1,5 @@
 from google.cloud import firestore
-import json 
+import json ,os
 GOOGLE_CLOUD_PROJECT_ID=os.getenv("PROJECT_ID")
 db=firestore.Client(GOOGLE_CLOUD_PROJECT_ID,database="vikraya-ecommerce")
 with open("new-local-catalog.json") as file:

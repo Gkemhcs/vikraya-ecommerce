@@ -1,6 +1,6 @@
 # VIKRAYA   MULTI GKE CLUSTER ECOMMERCE MICROSERVICE
 ##  SETUP TO DEPLOY VIKRAYA IN YOUR GOOGLE CLOUD PROJECT
-##### First Clone this repo an Checkout to this  project directory in your local workstation
+##### First Clone this repo and Checkout to this  project directory in your local workstation
 ```bash
 git clone https://github.com/Gkemhcs/vikraya-ecommerce.git
 cd vikraya-ecommerce

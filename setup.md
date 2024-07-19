@@ -81,9 +81,10 @@ cd ..
 cd data-import
 virtualenv venv
 source venv/bin/activate
-pip install google-cloud-firestore
+pip install -r requirements.txt
 sed -i "s/BUCKET_NAME/${BUCKET_NAME}/g" new-local-catalog.json 
 python3 catalog_data_import.py
+deactivate
 cd ..
 ```
 #### NOW ITS TIME 🕐 TO DEPLOY OUR SERVICE MANIFESTS THROUGH HELM But before that we need to get some values and create service-account for our Values.yaml file 

@@ -21,11 +21,11 @@ gcloud services enable compute.googleapis.com container.googleapis.com \
 
 ``` bash 
 gcloud iam service-accounts create cloudbuild 
-gcloud  projects add-iam-policy-binding vikraya-deployment --member "serviceAccount:cloudbuild@${PROJECT_ID}.iam.gserviceaccount.com" \
+gcloud  projects add-iam-policy-binding $PROJECT_ID --member "serviceAccount:cloudbuild@${PROJECT_ID}.iam.gserviceaccount.com" \
 --role roles/logging.logWriter
-gcloud  projects add-iam-policy-binding vikraya-deployment --member "serviceAccount:cloudbuild@${PROJECT_ID}.iam.gserviceaccount.com" \
+gcloud  projects add-iam-policy-binding $PROJECT_ID --member "serviceAccount:cloudbuild@${PROJECT_ID}.iam.gserviceaccount.com" \
 --role roles/artifactregistry.createOnPushWriter
-gcloud  projects add-iam-policy-binding vikraya-deployment --member "serviceAccount:cloudbuild@${PROJECT_ID}.iam.gserviceaccount.com" \
+gcloud  projects add-iam-policy-binding $PROJECT_ID --member "serviceAccount:cloudbuild@${PROJECT_ID}.iam.gserviceaccount.com" \
 --role roles/storage.admin
 
 ```

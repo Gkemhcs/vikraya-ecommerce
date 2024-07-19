@@ -2,7 +2,7 @@ from google.cloud import firestore,logging
 
 
 class Firestore:
-      def __init__(self,project,**kwargs):
+      def __init__(self,**kwargs):
         self.client=firestore.Client(**kwargs)
         self.logging_client = logging.Client()
         self.logger = self.logging_client.logger('catalog-service')

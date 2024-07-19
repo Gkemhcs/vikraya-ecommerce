@@ -1,7 +1,7 @@
 from google.cloud import firestore,logging
 
 class User:
-     def __init__(self,project,**kwargs):
+     def __init__(self,**kwargs):
         self.client=firestore.Client(**kwargs)
         self.logger = logging.Client().logger('auth-service')
      def validate_registration(self,email):

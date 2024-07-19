@@ -43,7 +43,7 @@ gcloud config set artifacts/location us
 #### Now we need to run the CLOUD-BUILD pipeline to create and store images of our microservices 
 ``` bash
 gcloud  beta builds submit --config cloudbuild.yaml  \
---substitutions=_ARTIFACT_REGISTRY_REPOSITORY_LOCATION=us,_ARTIFACT_REGISTRY_REPOSITORY_NAME=${PROJECT_ID}
+--substitutions=_ARTIFACT_REGISTRY_REPOSITORY_LOCATION=us,_ARTIFACT_REGISTRY_REPOSITORY_NAME=${ARTIFACT_REGISTRY_REPOSITORY_NAME}
 ```
 #### Create a GOOGLE_CLOUD_STORAGE_BUCKET to store the product images
 ``` bash 
